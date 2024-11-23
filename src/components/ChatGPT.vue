@@ -10,7 +10,7 @@ import { ChatDotRound, ChatLineRound, Service, User, Position, Loading } from '@
 
 // ChatGPT API配置信息
 const API_URL = 'https://api.openai.com/v1/chat/completions';
-const CHATGPT_API_KEY = import.meta.env.VITE_CHATGPT_API_KEY;
+const CHATGPT_API_KEY = import.meta.env.VITE_CHATG_API_KEY;
 // 组件状态
 const messages = ref([]); // 聊天消息历史
 const inputMessage = ref(''); // 用户输入
