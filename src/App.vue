@@ -1,16 +1,17 @@
 /**
- * App.vue - 应用程序主组件
- * 提供应用程序的主要布局和导航功能
- */
+* App.vue - 应用程序主组件
+* 提供应用程序的主要布局和导航功能
+*/
 
 <script setup>
 import { ref, computed } from 'vue';
-import { ChatLineRound, Service } from '@element-plus/icons-vue';
+import { ChatLineRound, Service, InfoFilled } from '@element-plus/icons-vue';
 import { useRoute } from 'vue-router';
 
 // 导航菜单状态
 const isCollapse = ref(false);
 const route = useRoute();
+const buildTime = __BUILD_TIMESTAMP__;
 
 // 计算当前激活的菜单项
 const activeMenu = computed(() => route.path);
@@ -31,22 +32,27 @@ const handleCollapse = () => {
         <img class="logo-img" src="@/assets/img/白色logo.png" alt="Logo">
         <!-- <span class="logo-text">X.AI</span> -->
       </div>
-      <el-menu
-        :collapse="isCollapse"
-        class="sidebar-menu"
-        :default-active="activeMenu"
-        router
-      >
+      <el-menu :collapse="isCollapse" class="sidebar-menu" :default-active="activeMenu" router>
         <el-menu-item index="/">
-          <el-icon><Service /></el-icon>
+          <el-icon>
+            <Service />
+          </el-icon>
           <template #title>X.AI聊天</template>
         </el-menu-item>
         <el-menu-item index="/chatgpt">
-          <el-icon><ChatLineRound /></el-icon>
+          <el-icon>
+            <ChatLineRound />
+          </el-icon>
           <template #title>ChatGPT聊天</template>
         </el-menu-item>
+        <el-menu-item index="/about">
+          <el-icon>
+            <InfoFilled />
+          </el-icon>
+          <template #title>关于我们</template>
+        </el-menu-item>
       </el-menu>
-      
+
       <!-- 折叠按钮 -->
       <div class="collapse-btn" @click="handleCollapse">
         <el-icon>
@@ -60,10 +66,10 @@ const handleCollapse = () => {
       <el-main>
         <router-view />
       </el-main>
-      
+
       <!-- 页脚 -->
       <el-footer height="40px" class="footer">
-        <span> 2024 WIC Power - Professional Power Supply Manufacturer</span>
+        <span> 2024 WIC Power - Professional Power Supply Manufacturer &nbsp; V1.0.0 (Build: {{ buildTime }}) </span>
       </el-footer>
     </el-container>
   </el-container>

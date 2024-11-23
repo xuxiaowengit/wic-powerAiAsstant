@@ -63,7 +63,7 @@ import { ElMessage } from 'element-plus'
 
 // 初始化状态
 const messages = ref([
-  createSystemMessage("You are a helpful assistant.")
+  createSystemMessage("I am a helpful assistant.")
 ]);
 const userInput = ref('');
 const loading = ref(false);

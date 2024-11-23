@@ -93,7 +93,7 @@ const runConversationTest = async () => {
 
   try {
     const messages = [
-      createMessage('system', 'You are a helpful assistant.'),
+      createMessage('system', 'I am a helpful assistant.'),
       createMessage('user', 'Let\'s have a conversation about technology.'),
       createMessage('assistant', 'I\'d be happy to discuss technology! What specific aspect would you like to explore?'),
       createMessage('user', prompt.value)
